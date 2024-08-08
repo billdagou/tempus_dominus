@@ -6,18 +6,16 @@ The extension version only matches the Tempus Dominus library version, it doesn'
 
 ## How to use it
 
-You can load the library in your Fluid template.
+You can load the library in your Fluid template easily.
 
-    <bsdtp:css />
-    <bsdtp:js />
+    <f:asset.css identifier="tempus_dominus" href="{td:uri.css()}" />
+    <f:asset.script identifier="tempus_dominus" src="{td:uri.js()}" />
 
-You can also load your own libraries.
+And with the plugin or locale.
 
-    <bsdtp:css href="..." />
-    <bsdtp:js src="..." />
+    <f:asset.script identifier="tempus_dominus.plugin" src="{td:uri.plugin(plugin: '...')}" />
+    <f:asset.script identifier="tempus_dominus.locale" src="{td:uri.locale(locale: '...')}" />
 
-For more options please refer to &lt;f:asset.css&gt; and &lt;f:asset.script&gt;.
+To use other Tempus Dominus source, you can register it in `ext_localconf.php` or `AdditionalConfiguration.php`.
 
-To use other Bootstrap Datetimepicker source, you can register it in `ext_localconf.php` or `AdditionalConfiguration.php`.
-
-    \Dagou\BootstrapDatetimepicker\Utility\ExtensionUtility::registerSource(\Dagou\BootstrapDatetimepicker\Source\CloudFlare::class);
+    \Dagou\TempusDominus\Utility\ExtensionUtility::registerSource(\Vendor\Extension\Source::class);
