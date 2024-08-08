@@ -57,9 +57,9 @@ class TextfieldViewHelper extends AbstractFormFieldViewHelper {
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    protected function getValueAttribute(): string {
+    protected function getValueAttribute(): mixed {
         $value = parent::getValueAttribute();
 
         return $value instanceof \DateTimeInterface ? $value->format($this->arguments['format']) : $value;
